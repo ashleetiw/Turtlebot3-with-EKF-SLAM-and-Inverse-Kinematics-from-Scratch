@@ -1,18 +1,19 @@
 # Turtlebot3 with EKF-SLAM and Inverse Kinematics from Scratch
-* Ashlee Tiwari
 
 ## Demo
+![s](https://github.com/ashleetiw/Turtlebot3-with-EKF-SLAM-and-Inverse-Kinematics-from-Scratch/blob/master/simulation.gif)
+![r](https://github.com/ashleetiw/Turtlebot3-with-EKF-SLAM-and-Inverse-Kinematics-from-Scratch/blob/master/realworld.gif)
 
-## Steps
+
 The steps can be summarized as the following:
 
-1.)The turtlebot laser scan first need to be programmed to detect landmarks and wall shapes
-2.)Each data point will be grouped into different landmarks or walls using clustering
-3.)Perform circle regression to extract the landmarks location based on each cluster of laser scan points
-4.)Classify the clusters of points into wall or cylinder landmark
-5.)Associating data to landmarks using mahalanobis distance
-6.)Perform odometry calculation
-7.)Update EKF-SLAM using associated landmark position and odometry information
+1. The turtlebot laser scan first need to be programmed to detect landmarks and wall shapes
+2. Each data point will be grouped into different landmarks or walls using clustering
+3. Perform circle regression to extract the landmarks location based on each cluster of laser scan points
+4. Classify the clusters of points into wall or cylinder landmark
+5. Associating data to landmarks using mahalanobis distance
+6. Perform odometry calculation
+7. Update EKF-SLAM using associated landmark position and odometry information
 
 # ROS Package 
 This repository consists of several ROS packages
