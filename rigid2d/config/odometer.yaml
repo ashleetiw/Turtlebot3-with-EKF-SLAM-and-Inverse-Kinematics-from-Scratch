@@ -1,0 +1,12 @@
+# Left wheel joint name
+left_wheel_joint: "wheel_left_joint"
+# Right wheel joint name
+right_wheel_joint: "wheel_right_joint"
+# Odom frame ID
+odom_frame_id: "odom"
+# Body frame ID
+body_frame_id: "base_footprint"
+#wheel radius 
+wheel_radius: 0.33
+# distance between two wheels
+wheel_base: 1.6

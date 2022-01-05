@@ -1,0 +1,18 @@
+<launch>
+  <arg name="use_rviz" default="True" doc="rViz launched. Set to False otherwise"/>
+  <arg name="use_keyboard" default="false" doc="turtlebot3_teleop_key launched. Set to False otherwise"/>
+  <arg name="simulate" default="false" doc="launch simulation or real turtlebot"/>
+
+  <!-- <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch" /> -->
+  <!-- <include file="$(find nuturtle_description)/launch/load.launch" /> -->
+  <include file="$(find nurtlesim)/launch/tube_world.launch" />
+
+  <!-- <rosparam command="load" file="$(find rigid2d)/config/odometer.yaml" />
+  <rosparam command="load" file="$(find nurtlesim)/config/obstacles.yaml" />
+  <node pkg="rigid2d" name="odometer" type="rigid2d_odom"/> -->
+   <rosparam command="load" file="$(find nurtlesim)/config/obstacles.yaml" />
+
+   <node pkg="nuslam" name="landmarks" type="nuslam_dumb" output="screen"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nuslam)/landmark_detection.rviz"/>
+
+</launch>

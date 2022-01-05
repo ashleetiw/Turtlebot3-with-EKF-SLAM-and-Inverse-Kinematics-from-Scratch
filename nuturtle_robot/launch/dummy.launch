@@ -1,0 +1,10 @@
+<launch>
+        <rosparam command="load" file="$(find rigid2d)/config/odometer.yaml"/>
+        <rosparam command="load" file="$(find nuturtle_description)/config/diff_params.yaml" /> 
+        <node machine="turtlebot" pkg="nuturtle_robot" type="nuturtle_robot_interface" name="turtle_interface" output="screen"/>    
+        <node machine="turtlebot"  pkg="rigid2d" name="odometer" type="rigid2d_odom" />
+            
+            
+     
+
+</launch>

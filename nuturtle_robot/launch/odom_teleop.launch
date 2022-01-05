@@ -1,0 +1,47 @@
+<launch>
+    <arg name="circle" default="true" doc="Launches follow_circle if true or turtlebot3_teleop_key if false" />
+
+    <include file="$(find nuturtle_robot)/launch/basic_remote.launch">
+                <arg name="robot" value="turtlebot"/>
+    </include>
+
+
+    <group if="$(eval arg('circle') == true)">
+        <rosparam command="load" file="$(find nuturtle_robot)/config/circle_param.yaml"/>
+        <node machine="turtlebot" pkg="nuturtle_robot" type="follow_circle" name="circle" output="screen"/>
+			<!-- <param name="radius" value="0.5"/>
+            <param name="speed" value="0.2"/> -->
+		<!-- </node> -->
+
+        <node machine="turtlebot" pkg="nuturtle_robot" type="turtle_interface" name="turtle_interface"/>
+            <!-- robot state publisher -->
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+    </group>
+
+
+    <group if="$(eval arg('circle')== false)">
+
+        <rosparam command="load" file="$(find rigid2d)/config/odometer.yaml"/>
+        <rosparam command="load" file="$(find nuturtle_description)/config/diff_params.yaml" />
+        <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch" />
+        <!-- <include file="$(find nuturtle_description)/launch/load.launch" /> -->
+
+        <node machine="turtlebot" pkg="nuturtle_robot" type="turtle_interface" name="turtle_interface" output="screen"/>
+            
+        <node machine="turtlebot"  pkg="rigid2d" name="odometer" type="rigid2d_odom" />
+           
+      
+
+    </group>
+
+
+    <!-- load model into parameter server -->
+    <param name="robot_description" command="xacro '$(find nuturtle_description)/urdf/turtlebot3_burger.urdf.xacro' " />
+
+
+
+    
+
+
+</launch>

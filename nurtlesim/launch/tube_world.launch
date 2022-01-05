@@ -1,0 +1,14 @@
+<launch>
+  <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+  
+  <!-- <param name="model" value="burger"/> -->
+  <!-- <node pkg="turtlebot3_teleop" name="turtlebot3_teleop_keyboard" type="turtlebot3_teleop_key"  output="screen"/> -->
+  <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch" />
+  <include file="$(find nuturtle_description)/launch/load.launch" />
+  <rosparam command="load" file="$(find rigid2d)/config/odometer.yaml" />
+  <rosparam command="load" file="$(find nurtlesim)/config/obstacles.yaml" />
+  <node pkg="rigid2d" name="odometer" type="rigid2d_odom"/>
+  <node pkg="nurtlesim" name="tube_world" type="nurtlesim_node" output="screen"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nurtlesim)/config/markers.rviz"/>  
+
+</launch>

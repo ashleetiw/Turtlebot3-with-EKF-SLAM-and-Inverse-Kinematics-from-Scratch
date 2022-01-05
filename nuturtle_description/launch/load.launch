@@ -1,0 +1,20 @@
+<launch>
+  
+  <!-- load the urdf into the parameter server from the xacro file-->
+  <param name="robot_description" command="xacro '$(find nuturtle_description)/urdf/turtlebot3_burger.urdf.xacro' " />
+  <!-- <param name="robot_description" command="xacro '$(find nuturtle_description)/urdf/turtlebot3_burger.gazebo.xacro' " />
+  <param name="robot_description" command="xacro '$(find nuturtle_description)/urdf/common_properties.xacro' " /> -->
+   
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <rosparam command="load" file="$(find nuturtle_description)/config/diff_params.yaml" />
+  <arg name="use_rviz" default="True" doc="controls whether rviz and the joint_state_publisher is launched"/>
+
+   <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+  <!-- <group if="$(arg use_rviz)">
+        <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find nuturtle_description)/rviz/model.rviz"/>
+       
+  </group> -->
+
+</launch>
+
