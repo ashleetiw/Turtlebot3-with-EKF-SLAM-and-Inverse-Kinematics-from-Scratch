@@ -1,7 +1,6 @@
 # Turtlebot3 with EKF-SLAM and Inverse Kinematics from Scratch
 
 ## Demo
-![s](https://github.com/ashleetiw/Turtlebot3-with-EKF-SLAM-and-Inverse-Kinematics-from-Scratch/blob/master/simulation.gif)
 ![r](https://github.com/ashleetiw/Turtlebot3-with-EKF-SLAM-and-Inverse-Kinematics-from-Scratch/blob/master/realworld.gif)
 
 
@@ -14,6 +13,9 @@ The steps can be summarized as the following:
 5. Associating data to landmarks using mahalanobis distance
 6. Perform odometry calculation
 7. Update EKF-SLAM using associated landmark position and odometry information
+
+![s](https://github.com/ashleetiw/Turtlebot3-with-EKF-SLAM-and-Inverse-Kinematics-from-Scratch/blob/master/simulation.gif)
+
 
 # ROS Package 
 This repository consists of several ROS packages
