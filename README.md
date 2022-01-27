@@ -3,9 +3,7 @@
 ## Demo
 ![r](https://github.com/ashleetiw/Turtlebot3-with-EKF-SLAM-and-Inverse-Kinematics-from-Scratch/blob/master/realworld.gif)
 
-
 The steps can be summarized as the following:
-
 1. The turtlebot laser scan first need to be programmed to detect landmarks and wall shapes
 2. Each data point will be grouped into different landmarks or walls using clustering
 3. Perform circle regression to extract the landmarks location based on each cluster of laser scan points
@@ -31,3 +29,5 @@ This repository consists of several ROS packages
 - `catch_ros` -Using the package to integrate your unit tests with ROS
 - `turtlebot3`- to launhc turtlsim teleop key node
 - `armadillo library` - to perform matrix calculations
+
+
